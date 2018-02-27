@@ -8,9 +8,15 @@ div {
     padding: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
+    font-family: 'Noto Serif', serif;
+    font-weight: 300;
     margin: 0;
+}
+
+p, b {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .bg1 {
@@ -83,8 +89,9 @@ h1, h2 {
     padding: 20px 0;
 }
 
-.type, .language, .framework, .tool {
-    font-size: 1.5em;
+.type, .language, .framework, .tool, .link {
+    font-size: 1em;
+    font-family: 'Noto Sans', sans-serif;
     border-style: solid;
     border-width: 3px;
     display: inline-block;
@@ -92,7 +99,7 @@ h1, h2 {
     margin: 5px 10px;
 }
 
-.type {
+.type, .link {
     color: #333;
     border-color: #333;
 }
@@ -113,12 +120,12 @@ h1, h2 {
 }
 
 .project-wrapper {
-    padding: 15px 0;
+    padding: 45px 0;
 }
 
 .project {
     display: flex;
-    align-items: center;
+    align-items: top;
 }
 
 .project-meta {
@@ -126,12 +133,24 @@ h1, h2 {
     margin-right: 40px;
 }
 
+/* the text in second child (project-date) is a little off center veertically  */
+.project-meta-info {
+    padding: 10px 0;
+}
+
+.project-date {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #777;
+}
+
 .project-type {
-    text-align: center;
+    text-align: left;
 }
 
 .project-image-wrapper {
     width: 40%;
+    text-align: center;
 }
 
 .project-image {
