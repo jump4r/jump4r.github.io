@@ -9,14 +9,22 @@ div {
 }
 
 h1, h2, h3 {
-    text-align: center;
     font-family: 'Noto Serif', serif;
     font-weight: 300;
     margin: 0;
 }
 
+h2 {
+    font-size: 1.5em;
+}
+
 p, b {
     font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .bg1 {
@@ -50,14 +58,14 @@ p, b {
     /* background-color: rgb(51, 51, 51); */
     display: flex;
     align-items: center;
+
+    padding: 20px 0;
 }
 
-#title-stripe > * {
-    text-align: center;
-}
 
 #title-image-wrapper{
     flex: 1 1 50%; /* set width/height (depending on flex direction) starting at 50%, adjust proportionally */
+    padding-right: 20px;
 }
 
 #title-image {
@@ -66,20 +74,36 @@ p, b {
     position: relative;
     overflow: hidden;
     display: block;
-    margin: 0 auto;
+    margin-right: 0;
+    margin-left: auto;
     border-radius: 50%;
 }
 
 /* Doesn't work */
 #title-meta {
     flex: 1 1 50%;
+    padding-left: 20px;
 }
 
-#about-page {
-    padding: 1px; /* Without this, background skips some parts */ 
+#title {
+    font-size: 1.5em;
 }
 
-.page-content {
+.title-element {
+    font-size: 1.25em;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+
+.section-content {
     width: 70%;
     margin: 0 auto;
 }
@@ -99,9 +123,17 @@ p, b {
     margin: 5px 10px;
 }
 
-.type, .link {
+.link {
+    color: white;
+    border-color: white;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.type {
     color: #333;
-    border-color: #333;
+    border-color: 333;
 }
 
 .language {
