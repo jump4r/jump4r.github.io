@@ -31,6 +31,14 @@ a {
     background-color: #eee;
 }
 
+.bg2 {
+    background-color: white;
+}
+
+.bg3 {
+    background-color: #333;
+}
+
 input[type=text] {
     width: 40%;
     border-color: #eee;
@@ -42,9 +50,6 @@ form {
     text-align: center;
 }
 
-.bg2 {
-    background-color: white;
-}
 
 #title-page {
     height: 100vh;
@@ -213,4 +218,38 @@ form {
 
 .project-image {
     max-width: 100%;
+}
+
+#contact-page {
+    color: white;
+}
+
+.contact-send {
+    padding: 10px 0;
+    border-radius: 4px;
+    border-color: white;
+    border-style: solid;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.contact-send:hover {
+    cursor: pointer;
+}
+
+.contact-name, .contact-email, .contact-content{
+    display: block;
+    margin: 0 auto;
+    color: white;
+    border-bottom-style: solid; 
+    border-radius: 0px !important;
+    border-width: 1px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    background-color: #333;
+    outline: none;
 }
