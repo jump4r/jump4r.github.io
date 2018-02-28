@@ -1,3 +1,10 @@
+:root {
+    background-color: white;
+    color: #333;
+    font-size: 1em;
+    font-family: "Noto Sans", sans-serif
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -50,7 +57,9 @@ form {
     text-align: center;
 }
 
-
+/******************************************************
+    Title Page
+******************************************************/
 #title-page {
     height: 100vh;
     background-image: url('./background.png');
@@ -124,6 +133,13 @@ form {
     max-width: 137px;
 }
 
+#scroll-button:hover {
+    cursor: pointer;
+}
+
+/******************************************************
+    Sections (About, Projects)
+******************************************************/
 .section {
     padding: 40px 0;
 }
@@ -139,12 +155,15 @@ form {
     margin: 0 auto;
 }
 
+/******************************************************
+    Project Section
+******************************************************/
 #key {
     text-align: center;
     padding: 20px 0;
 }
 
-.type, .language, .framework, .tool, .link {
+.type, .language, .framework, .tool, .link, .project-link {
     font-size: 1em;
     font-family: 'Noto Sans', sans-serif;
     border-style: solid;
@@ -160,6 +179,12 @@ form {
     margin-left: 0;
     margin-right: 10px;
     margin-top: 10px;
+}
+
+.project-link {
+    color: white;
+    border-color: #333;
+    background-color: #333;
 }
 
 .type {
@@ -181,6 +206,10 @@ form {
     color: #1d77e7;
     border-color: #1d77e7;
 }
+
+/******************************************************
+    Project Wrapper
+******************************************************/
 
 .project-wrapper {
     padding: 45px 0;
@@ -219,6 +248,10 @@ form {
 .project-image {
     max-width: 100%;
 }
+
+/******************************************************
+    Contact Section
+******************************************************/
 
 #contact-page {
     color: white;
