@@ -218,6 +218,14 @@ form {
     margin-top: 10px;
 }
 
+.filter-element:hover {
+    cursor: pointer;
+}
+
+.filter-element {
+    background-color: white; /* Needed to fix a js bug */
+}
+
 .project-link {
     color: white;
     border-color: #333;
@@ -226,7 +234,7 @@ form {
 
 .type {
     color: #333;
-    border-color: 333;
+    border-color: #333;
 }
 
 .language {
@@ -237,11 +245,11 @@ form {
 .framework {
     color: green;
     border-color: green;
+    
 }
 
 .tool {
     color: #1d77e7;
-    border-color: #1d77e7;
 }
 
 /******************************************************

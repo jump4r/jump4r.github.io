@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', _ => {
     projects = document.querySelectorAll(".project-wrapper");
 
     var filterElements = document.querySelectorAll(".filter-element");
-    console.log(filterElements.length);
     for (let i = 0; i < filterElements.length; i++) {
         filterElements[i].addEventListener('click', function(event) {
             filter(event);
@@ -49,10 +48,9 @@ function filter() {
     else {
         query.push(searchText);
     }
-    
-    console.log(query);
 
     let projectsToDisplay = []; // A parrallel array running along the 'projects' array to show which ones to display
+    
     for (let i = 0; i < projects.length; i++) {
         projectsToDisplay.push(true);
     }
@@ -75,7 +73,12 @@ function filter() {
         }
     }
 
-    // Background colors
+    console.log(query);
+
+    // Inverse Button Background Colors
+    invertColors(targetElement);
+
+    // Alternate between two project background colors for display
     let white = false;
 
     for (let i = 0; i < projects.length; i++) {
@@ -96,6 +99,15 @@ function filter() {
             white = !white;
         }
     }
+}
+
+// True for 'on', False for 'off'
+function invertColors(element) {
+    let newTextColor = window.getComputedStyle(element, null).getPropertyValue('background-color');
+    let newBackgroundColor = window.getComputedStyle(element, null).getPropertyValue('color');
+
+    element.style.backgroundColor = newBackgroundColor;
+    element.style.color = newTextColor;
 }
 
 function arrayContains(needle, arrhaystack)
