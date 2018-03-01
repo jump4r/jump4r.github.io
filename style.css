@@ -47,13 +47,6 @@ a {
     background-color: #333;
 }
 
-input[type=text], textarea {
-    width: 40%;
-    border-color: #eee;
-    border-radius: 4px;
-    padding: 10px;
-}
-
 /* Block Alignment */
 .left {
     text-align: left;
@@ -95,13 +88,10 @@ form {
 /* align-items works on the children of the element it's assigned to */
 #title-stripe {
     background-color: rgba(51, 51, 51, 0.75);
-    /* background-color: rgb(51, 51, 51); */
     display: flex;
     align-items: center;
-
     padding: 20px 0;
 }
-
 
 #title-image-wrapper{
     flex: 1 1 50%; /* set width/height (depending on flex direction) starting at 50%, adjust proportionally */
@@ -152,6 +142,33 @@ form {
 }
 
 /******************************************************
+    Title (Mobile)
+******************************************************/
+@media (max-width: 768px) {
+    #title-stripe {
+        display: block;
+        font-size: 0.9em; /* We might just want to make the whole font smaller in general */
+    }
+
+    #title-image-wrapper {
+        padding: 0;
+    }
+
+    #title-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    #title-image {
+        margin: 0 auto;
+    }
+
+    #title-meta > * {
+        text-align: center;
+    }
+}
+
+/******************************************************
     Sections (About, Projects)
 ******************************************************/
 .section {
@@ -167,6 +184,15 @@ form {
     margin: 0 auto;
 }
 
+
+/******************************************************
+    Sections (About, Projects) (Mobile)
+******************************************************/
+@media (max-width: 768px) {
+    .section-content {
+        width: 95%;
+    }
+}
 /******************************************************
     Project Section
 ******************************************************/
@@ -256,8 +282,40 @@ form {
 }
 
 /******************************************************
+    Project Wrapper
+******************************************************/
+@media (max-width: 768px) {
+    .project {
+        flex-direction: column-reverse;
+    }
+
+    .project-image-wrapper {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .project-image {
+        max-height: 250px;
+    }
+
+    .project-meta {
+        width: 100%;
+    }
+
+    .project-meta-info {
+        text-align: center;
+    }
+}
+
+/******************************************************
     Contact Section
 ******************************************************/
+input[type=text], textarea {
+    width: 40%;
+    border-color: #eee;
+    border-radius: 4px;
+    padding: 10px;
+}
 
 #contact-page {
     color: white;
@@ -294,4 +352,13 @@ form {
     border-right-style: none;
     background-color: #333;
     outline: none;
+}
+
+/******************************************************
+    Contact Section (Mobile)
+******************************************************/
+@media (max-width: 768px) {
+    input[type=text], textarea {
+        width: 85%;
+    }
 }
