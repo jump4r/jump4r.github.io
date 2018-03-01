@@ -3,9 +3,17 @@ document.addEventListener('DOMContentLoaded', _ => {
     document.querySelector('#scroll-button').addEventListener('click', function() {
         scroll('about-page');
     })
-    document.querySelector('#filter').addEventListener('input', filter)
 
     projects = document.querySelectorAll(".project-wrapper");
+
+    var filterElements = document.querySelectorAll(".filter-element");
+    console.log(filterElements.length);
+    for (let i = 0; i < filterElements.length; i++) {
+        filterElements[i].addEventListener('click', function(event) {
+            filter(event);
+        });
+        
+    }
 });
 
 // Smooth Scrolling
@@ -16,35 +24,81 @@ function scroll(eid) {
 
 // Filter
 var projects; // Set when DOM Content is loaded
+var filterElements;
 var projectNames = ["powerslide", "wdtp", "tbreviews", "automapper", "wop", "beatblox", "bakery", "trajectory"];
+
+// 
 var tags = {
     "wdtp": ["translation", "aegisub", "dropbox"],
     "powerslide": ["game development", "web development", "android", "c#", "html5/css3", "javascript", "asp.net core", "visual studio", "unity", "git", "photoshop"],
     "tbreviews": ["web development", "python", "html5/css3", "django", "visual studio", "git", "heroku", "postgres"]
 };
+var query = []; // User input string
 
 function filter() {
-    let query = document.querySelector('#filter').value.toLowerCase();
+    var targetElement = event.target || event.srcElement;
 
+    // Check to see if we have to remove or add query
+    searchText = targetElement.innerHTML.toLowerCase();
+    searchArrayIndex = query.indexOf(searchText);
+
+    if (searchArrayIndex > -1) {
+        query.splice(searchArrayIndex, 1);
+    }
+
+    else {
+        query.push(searchText);
+    }
+    
+    console.log(query);
+
+    let projectsToDisplay = []; // A parrallel array running along the 'projects' array to show which ones to display
     for (let i = 0; i < projects.length; i++) {
-        let included = false;
+        projectsToDisplay.push(true);
+    }
 
-        for (let j = 0; j < tags[projects[i].id].length; j++) {
-            // tags[projects[i].id][j])
-            if (tags[projects[i].id][j].includes(query)) {
-                included = true;
-                break;
+    for (let i = 0; i < query.length; i++) {
+        for (let j = 0; j < projects.length; j++) {
+            let included = false;
+
+            for (let k = 0; k < tags[projects[j].id].length; k++) {
+                
+                if (tags[projects[j].id][k].includes(query)) {
+                    included = true;
+                    break;
+                }
+            }
+
+            if (!included) {
+                projectsToDisplay[j] = false;
             }
         }
+    }
 
-        if (!included) {
+    // Background colors
+    let white = false;
+
+    for (let i = 0; i < projects.length; i++) {
+        if (!projectsToDisplay[i]) {
             projects[i].style.display = 'none';
         }
 
         else {
-            projects[i].style.display = "flex";
+            projects[i].style.display = 'flex';
+            if (white) {
+                projects[i].style.backgroundColor = "white";
+            }
+
+            else {
+                projects[i].style.backgroundColor = "#eee";
+            }
+
+            white = !white;
         }
     }
+}
 
-    
+function arrayContains(needle, arrhaystack)
+{
+    return (arrhaystack.indexOf(needle) > -1);
 }
