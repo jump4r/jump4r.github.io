@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', _ => {
     var filterElements = document.querySelectorAll(".filter-element");
     for (let i = 0; i < filterElements.length; i++) {
         filterElements[i].addEventListener('click', function(event) {
-            filter(event);
+            loadFilter(event);
         });
         
     }
@@ -34,8 +34,24 @@ var tags = {
 };
 var query = []; // User input string
 
-function filter() {
-    var targetElement = event.target || event.srcElement;
+function loadFilter(event) {
+    // Load spinner and wait for .5s to give the appearance of a "load sequence"
+    // This is just for appearances so that the user will think "Oh, something happened"
+    document.querySelector('#loader').style.display = 'flex';
+
+    let targetElement = event.target || event.srcElement;
+    invertColors(targetElement);
+
+    // Wait 500ms before calling filter
+    setTimeout(function() {
+        filter(event);
+        document.querySelector('#loader').style.display = 'none';
+    }, 500);
+}
+
+
+function filter(event) {
+    let targetElement = event.target || event.srcElement;
 
     // Check to see if we have to remove or add query
     searchText = targetElement.innerHTML.toLowerCase();
@@ -61,7 +77,7 @@ function filter() {
 
             for (let k = 0; k < tags[projects[j].id].length; k++) {
                 
-                if (tags[projects[j].id][k].includes(query)) {
+                if (tags[projects[j].id][k].includes(query[i])) {
                     included = true;
                     break;
                 }
@@ -72,12 +88,6 @@ function filter() {
             }
         }
     }
-
-    console.log(query);
-
-    // Inverse Button Background Colors
-    invertColors(targetElement);
-
     // Alternate between two project background colors for display
     let white = false;
 
